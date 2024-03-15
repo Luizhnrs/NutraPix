@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: docker/welcome-to-docker:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 11072001
+      MYSQL_DATABASE: nutrapix
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 11072001
+    ports:
+      - "8088:80"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
