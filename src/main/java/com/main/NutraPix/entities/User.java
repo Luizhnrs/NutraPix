@@ -1,6 +1,8 @@
 package com.main.NutraPix.entities;
 
 import java.util.Collection;
+import java.util.Collections;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,10 +23,14 @@ public class User implements UserDetails{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    private String email;
+    private String email; 
     private String password;
     private String verificationCode;
     private boolean enable;
+
+    public User(){
+
+    }
 
     public User(Long id, String name, String email, String password, String verificationCode, boolean enable) {
         this.id = id;
@@ -43,7 +49,7 @@ public class User implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'");
+      return Collections.emptyList();
     }
 
     @Override
